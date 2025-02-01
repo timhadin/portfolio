@@ -2,7 +2,10 @@ import styles from "./Home.module.css";
 
 function Home({ homeRef, scrollPosition }) {
   return (
-    <section ref={homeRef} className={`${styles.homeSection} ${styles.parallax}`}>
+    <section
+      ref={homeRef}
+      className={`${styles.homeSection} ${styles.parallax}`}
+    >
       <div
         className={styles.content}
         style={{ transform: `translateY(${scrollPosition * 0.5}px)` }}
@@ -13,24 +16,30 @@ function Home({ homeRef, scrollPosition }) {
         <div className={styles.textContent}>
           <h1>SIM HAJIN</h1>
           <p className={styles.intro}>
-            🚀 사용자 중심의 서비스를 개발하는 것을 좋아하는 심하진입니다.
+            🚀 사용자 중심의 서비스를 개발하는{" "}
+            <span className={styles.highlight}>심하진</span>입니다.
             <br />
             <span className={styles.highlight}>리액트</span>를 중심으로 한
-            프론트엔드 개발에 열정을 가지고 있으며,{" "}
-            <span className={styles.highlight}>SpringBoot</span>를 활용해
-            백엔드와의 완벽한 통합을 이뤄냅니다.
-            <br /> <br />
-            <span className={styles.highlight}>🎨 Figma</span>를 활용한 디자인
-            작업을 통해, 사용자의 직관적인 경험을 고려한 UI/UX를 설계합니다.{" "}
+            프론트엔드 개발에 열정을 가지고 있으며,
             <br />
-            개발과 디자인의 경계를 허물며, 기능뿐만 아니라 사용자 경험을
-            중시하는 개발을 추구합니다.
+            <span className={styles.highlight}>SpringBoot</span>를 활용해
+            백엔드와의 매끄러운 연동을 구현합니다.
+            <br /> <br />
+            <span className={styles.highlight}>🎨 Figma</span>를 활용한 UI/UX
+            설계를 통해 직관적인 사용자 경험을 제공합니다.
+            <br />
+            기능적인 개발을 넘어{" "}
+            <span className={styles.highlight}>
+              사용자가 만족하는 경험을 만드는 것
+            </span>
+            이 제 목표입니다.
             <br /> <br />✨{" "}
             <span className={styles.highlight}>
-              "사용자가 원하는 것은 내가 만들겠다"
-            </span>
-            는 신념으로 매일 성장하며, 창의적인 아이디어를 코드와 디자인으로
-            실현해 나가고 있습니다.
+              "사용자가 원하는 것은 내가 만든다"
+            </span>{" "}
+            라는 신념으로,
+            <br />
+            끊임없이 성장하며 더 나은 서비스를 위한 개발을 이어가고 있습니다.
           </p>
         </div>
       </div>
