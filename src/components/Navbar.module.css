@@ -1,0 +1,43 @@
+.navbar {
+  position: fixed;
+  width: 95%;
+  max-width: 1400px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.navBrand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navLinks button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navLinks button:hover {
+  color: #007bff;
+}
+
+@media (max-width: 480px) {
+  .navBrand {
+    font-size: 1.2rem;
+  }
+
+  .navLinks button {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

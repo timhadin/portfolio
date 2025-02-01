@@ -1,0 +1,23 @@
+.skillsSection {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/images/skills-bg.jpg");
+  color: white;
+  padding: 0;
+}
+
+.skillBar {
+  margin-bottom: 1.5rem;
+}
+
+.bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: #007bff;
+  transition: width 1s ease-in-out;
+}
