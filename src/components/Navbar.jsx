@@ -5,35 +5,38 @@ function Navbar({ scrollToSection, homeRef, aboutRef, skillsRef, projectsRef }) 
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-      
-      const sections = [
-        { ref: homeRef, id: "home" },
-        { ref: aboutRef, id: "about" },
-        { ref: skillsRef, id: "skills" },
-        { ref: projectsRef, id: "projects" }
-      ];
+    const sections = [
+      { ref: homeRef, id: "home" },
+      { ref: aboutRef, id: "about" },
+      { ref: skillsRef, id: "skills" },
+      { ref: projectsRef, id: "projects" }
+    ];
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section.ref.current) {
-          const sectionTop = section.ref.current.offsetTop;
-          const sectionBottom = sectionTop + section.ref.current.offsetHeight;
-          
-          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-            setActiveSection(section.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    // 초기 로드 시 현재 섹션 확인
-    handleScroll();
+    const observers = [];
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    sections.forEach(({ ref, id }) => {
+      if (!ref.current) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.5 // 50% 이상 보일 때 활성화
+        }
+      );
+
+      observer.observe(ref.current);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach(observer => observer.disconnect());
+    };
   }, [homeRef, aboutRef, skillsRef, projectsRef]);
 
   return (

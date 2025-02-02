@@ -1,9 +1,5 @@
 .skillsSection {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #415a77;
   color: white;
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -20,7 +16,7 @@
 
 .skillsContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -80,27 +76,35 @@
 }
 
 .percentage {
+  display: none;
   position: absolute;
-  right: 5px;
-  top: -25px;
-  font-size: 1rem;
+  background-color: #333;
   color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  top: -30px;
+  right: 0;
+}
+
+.fill:hover .percentage {
+  display: block;
 }
 
 @media (max-width: 768px) {
   .skillsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .skillItem {
     padding: 1.5rem;
     min-height: 250px;
   }
-  
+
   .skillsSection {
     background-attachment: scroll;
   }
-  
+
   .content {
     transform: none !important;
   }

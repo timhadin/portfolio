@@ -20,7 +20,7 @@ function Projects({ projectsRef, scrollPosition }) {
     },
     {
       title: "KOKEETEA MAIN WEB",
-      description: "KOKEETEA 브랜드 공식 웹사이트",
+      description: "KOKEETEA 브랜드 웹사이트",
       images: ["/images/kokee1.png", "/images/kokee2.png", "/images/kokee3.png"],
       tech: ["React", "Spring Boot", "MySQL", "Axios"],
       features: [
@@ -50,7 +50,7 @@ function Projects({ projectsRef, scrollPosition }) {
         });
         return newSlides;
       });
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);

@@ -9,9 +9,11 @@ function Home({ homeRef, scrollPosition }) {
       <div
         className={styles.content}
         style={{ 
-          transform: `translate3d(0, ${scrollPosition * 0.3}px, 0)`,
+          transform: `translate3d(0, ${scrollPosition * 0.7}px, 0) scale(${1 - scrollPosition * 0.0005})`,
           willChange: 'transform',
-          transition: 'transform 0.1s ease-out'
+          transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          filter: `blur(${Math.min(scrollPosition * 0.02, 5)}px)`,
+          opacity: `${Math.max(1 - scrollPosition * 0.002, 0)}`
         }}
       >
         <div className={styles.profileImage}>
@@ -45,6 +47,12 @@ function Home({ homeRef, scrollPosition }) {
             <br />
             끊임없이 성장하며 더 나은 서비스를 위한 개발을 이어가고 있습니다.
           </p>
+        </div>
+      </div>
+      <div className={styles.scrollDown}>
+        <div className={styles.chevrons}>
+          <div className={styles.chevronDown}></div>
+          <div className={styles.chevronDown}></div>
         </div>
       </div>
     </section>

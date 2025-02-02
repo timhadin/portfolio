@@ -14,20 +14,12 @@ function App() {
   const skillsRef = useRef(null);
 
   useEffect(() => {
-    let ticking = false;
-    
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrollPosition(window.pageYOffset);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      setScrollPosition(window.pageYOffset || document.documentElement.scrollTop);
+      console.log('Current Scroll:', window.pageYOffset);
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (ref) => {

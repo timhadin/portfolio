@@ -68,12 +68,13 @@ section {
   transform-style: preserve-3d;
   perspective: 1000px;
   will-change: transform;
-  overflow: hidden;
+  overflow: visible;
 }
 
 @media (max-width: 768px) {
   .parallax {
     background-attachment: scroll;
+    perspective: 500px;
   }
   
   .content {

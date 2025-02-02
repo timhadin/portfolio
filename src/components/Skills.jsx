@@ -3,6 +3,16 @@ import styles from "./Skills.module.css";
 function Skills({ skillsRef, scrollPosition }) {
   const skills = [
     {
+      name: "Spring Boot",
+      level: 35,
+      icon: "/images/spring-boot.png",
+    },
+    {
+      name: "Figma",
+      level: 30,
+      icon: "/images/Figma.png",
+    },
+    {
       name: "HTML5",
       level: 80,
       icon: "/images/html.png",
@@ -21,7 +31,7 @@ function Skills({ skillsRef, scrollPosition }) {
       name: "React",
       level: 70,
       icon: "/images/React-icon.png",
-    },
+    }
   ];
 
   return (
