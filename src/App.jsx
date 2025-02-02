@@ -10,15 +10,23 @@ function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
-  const projectRef = useRef(null);
+  const projectsRef = useRef(null);
   const skillsRef = useRef(null);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollPosition(window.pageYOffset);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,12 +41,12 @@ function App() {
         homeRef={homeRef}
         aboutRef={aboutRef}
         skillsRef={skillsRef}
-        projectRef={projectRef}
+        projectsRef={projectsRef}
       />
       <Home homeRef={homeRef} scrollPosition={scrollPosition} />
-      <About aboutRef={aboutRef} />
+      <About aboutRef={aboutRef} scrollPosition={scrollPosition} />
       <Skills skillsRef={skillsRef} scrollPosition={scrollPosition} />
-      <Projects projectRef={projectRef} />
+      <Projects projectsRef={projectsRef} scrollPosition={scrollPosition} />
     </div>
   );
 }

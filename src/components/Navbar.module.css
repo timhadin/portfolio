@@ -31,6 +31,12 @@
   color: #007bff;
 }
 
+.navLinks button.active {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 @media (max-width: 480px) {
   .navBrand {
     font-size: 1.2rem;

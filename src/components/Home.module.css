@@ -1,9 +1,15 @@
 .homeSection {
   width: 100%;
   background-color: #f8f9fa;
+  overflow: hidden;
+  position: relative;
 }
 
 .content {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;

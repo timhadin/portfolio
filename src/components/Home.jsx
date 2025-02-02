@@ -8,10 +8,14 @@ function Home({ homeRef, scrollPosition }) {
     >
       <div
         className={styles.content}
-        style={{ transform: `translateY(${scrollPosition * 0.5}px)` }}
+        style={{ 
+          transform: `translate3d(0, ${scrollPosition * 0.3}px, 0)`,
+          willChange: 'transform',
+          transition: 'transform 0.1s ease-out'
+        }}
       >
         <div className={styles.profileImage}>
-          <img src="신분증.jpg" alt="Profile" />
+          <img src="/images/profile.jpg" alt="Profile" />
         </div>
         <div className={styles.textContent}>
           <h1>SIM HAJIN</h1>

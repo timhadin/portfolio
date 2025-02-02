@@ -29,28 +29,61 @@ body {
   scrollbar-width: none;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 section {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  padding: 80px 2rem;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
 }
 
 .parallax {
+  position: relative;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
-  .content {
-    padding: 1rem;
+  .parallax {
+    background-attachment: scroll;
   }
+  
+  .content {
+    transform: none !important;
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: white;
 }
