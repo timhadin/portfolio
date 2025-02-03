@@ -6,31 +6,37 @@ function Skills({ skillsRef, scrollPosition }) {
       name: "Spring Boot",
       level: 35,
       icon: "/images/spring-boot.png",
+      description: "기본적인 CRUD 애플리케이션 개발 가능"
     },
     {
       name: "Figma",
       level: 30,
       icon: "/images/Figma.png",
+      description: "기본적인 UI/UX 디자인 및 프로토타입 제작 가능"
     },
     {
       name: "HTML5",
       level: 80,
       icon: "/images/html.png",
+      description: "시맨틱 마크업과 웹 접근성을 고려한 구조화 가능"
     },
     {
       name: "CSS3",
       level: 75,
       icon: "/images/css.png",
+      description: "반응형 디자인 및 모던 레이아웃 구현 가능"
     },
     {
       name: "JavaScript",
       level: 70,
       icon: "/images/js.png",
+      description: "ES6+ 문법 활용 및 비동기 처리 구현 가능"
     },
     {
       name: "React",
       level: 70,
       icon: "/images/React-icon.png",
+      description: "컴포넌트 설계 및 상태관리 구현 가능"
     }
   ];
 
@@ -59,11 +65,14 @@ function Skills({ skillsRef, scrollPosition }) {
                 <div className={styles.bar}>
                   <div
                     className={styles.fill}
-                    style={{ width: `${skill.level}%` }}
+                    style={{ '--level': `${skill.level}%` }}
+                    data-percent={`${skill.level}%`}
                   >
                     <span className={styles.percentage}>{skill.level}%</span>
                   </div>
+
                 </div>
+                <p className={styles.skillDescription}>{skill.description}</p>
               </div>
             </div>
           ))}
