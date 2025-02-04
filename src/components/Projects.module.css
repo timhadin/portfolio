@@ -60,19 +60,24 @@
   display: flex;
   gap: 10px;
   z-index: 2;
+  padding: 4px 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
 }
 
 .dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #0d1b2a;
+  background-color: rgba(224, 225, 221, 0.5);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e1dd;
 }
 
 .activeDot {
-  background-color: #e0e1dd;
+  background-color: #007bff;
+  transform: scale(1.2);
 }
 
 .projectInfo {

@@ -8,7 +8,7 @@ function Projects({ projectsRef, scrollPosition }) {
     {
       title: "FIND GOOD STORE",
       description: "오픈 API를 활용한 매장 검색 및 지도 표시 서비스",
-      images: ["/images/goodstore1.png", "/images/goodstore2.png", "/images/goodstore3.png"],
+      images: ["/images/goodstore1.png", "/images/goodstore2.png", "/images/goodstore3.png", "/images/goodstore4.png"],
       tech: ["HTML", "CSS", "JavaScript", "Open API"],
       features: [
         "매장 위치 지도 표시",

@@ -11,13 +11,13 @@
 ## 프로젝트 목록
 
 ### 1. **GOOD STORE**
-- **기술 스택:** HTML, CSS, JavaScript, Open API
+- **기술 스택:** HTML, CSS, JavaScript, Open API, Node.js, MariaDB
 - **설명:** 오픈 API를 사용하여 영업 중인 매장을 지도에 표시하는 프로젝트입니다. 매장 검색, 카테고리 필터링, 매장 상세 정보 표시 등의 기능을 구현했습니다.
 - **기능:** 매장 검색, 카테고리 필터링, 매장 상세 정보 표시.
 - **Github:** https://github.com/timhadin/goodstore
 
 ### 2. **KOKEETEA MAIN WEB**
-- **기술 스택:** React, Spring Boot, Axios
+- **기술 스택:** React, Spring Boot, Axios, MariaDB
 - **설명:** KOKEETEA의 메인 웹사이트를 React로 구현한 프로젝트입니다. 사용자 로그인, 메뉴 주문, 관리자 공지사항 등록, 문의하기 기능을 포함하며, Spring Boot와 연동하여 CRUD 기능을 구현했습니다.
 - **기능:** 메뉴 주문, 로그인/회원가입, 관리자 공지사항 등록, 문의하기.
 - **Github:** https://github.com/timhadin/kokeetea-main
