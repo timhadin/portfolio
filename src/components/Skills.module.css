@@ -1,17 +1,19 @@
 .skillsSection {
   background-color: #415a77;
   color: white;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  min-height: 100vh;
+  padding: 80px 0;
+  box-sizing: border-box;
 }
 
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  will-change: transform;
+  padding: 0 2rem;
+  height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .skillsDescription {

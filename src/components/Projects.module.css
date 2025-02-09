@@ -1,55 +1,94 @@
 .projectsSection {
-  background-color: #1b263b;  /* 파란색 */
+  background-color: #1b263b; 
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  overflow: hidden;
-  padding: 2rem 0;
-  height: 150vh;
+  height: 100vh; 
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto !important;
 }
 
 .content {
-  min-width: 1500px;
-  padding: 2rem 0;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 2rem;
   position: relative;
   z-index: 1;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 0 0 2rem 0;
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
 }
 
 .projectGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  margin-top: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem; 
+  padding-bottom: 4rem;
 }
 
 .projectCard {
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  overflow: hidden;
+  padding: 3rem;
   display: flex;
-  flex-direction: row;
+  gap: 3rem;
   align-items: center;
-  margin: 0 auto;
-  height: auto;
-  width: 100%;
+  flex-shrink: 0;
+}
+
+.projectCard:last-child {
+  margin-bottom: 0;
 }
 
 .imageSlider {
-  flex: 1;
+  flex: 2;
   position: relative;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 550px;
+  overflow: hidden;
 }
 
 .imageSlider img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(1.05);
+}
+
+.imageSlider img.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.imageSlider img.prev {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.imageSlider img.next {
+  opacity: 0;
+  transform: scale(1.05);
 }
 
 .sliderDots {
@@ -66,20 +105,23 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #0d1b2a;
+  background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .activeDot {
-  background-color: #e0e1dd;
+  background-color: #ffffff;
+  transform: scale(1.2);
 }
 
 .projectInfo {
   flex: 1;
-  justify-content: center;
-  align-items: center;
-  max-width: 30%;
+  max-width: 400px;
 }
 
 .projectInfo h3 {
@@ -88,9 +130,9 @@
   color: #ffffff;
 }
 
-.projectInfo p,
-.projectInfo li {
+.projectInfo p {
   color: #ffffff;
+  margin-bottom: 1.5rem;
 }
 
 .techStack {
@@ -118,6 +160,7 @@
   margin: 0.5rem 0;
   padding-left: 1.5rem;
   position: relative;
+  color: #ffffff;
 }
 
 .features li::before {
@@ -130,12 +173,12 @@
 .githubLink {
   display: inline-block;
   background: #e0e1dd;
-  color: rgb(0, 0, 0);
+  color: #000000;
   padding: 0.8rem 1.5rem;
   border-radius: 5px;
   text-decoration: none;
   margin-top: 1rem;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .githubLink:hover {
@@ -143,15 +186,36 @@
   color: white;
 }
 
+/* 스크롤바 스타일링 */
+.projectsSection::-webkit-scrollbar {
+  width: 8px;
+}
+
+.projectsSection::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.projectsSection::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.projectsSection::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 @media (max-width: 1024px) {
   .projectCard {
     flex-direction: column;
-    height: auto;
+    padding: 2rem;
+    gap: 2rem;
+    min-height: auto;
   }
 
   .imageSlider {
-    min-width: 100%;
-    height: 300px;
+    width: 100%;
+    height: 400px;
   }
 
   .projectInfo {
@@ -161,10 +225,18 @@
 
 @media (max-width: 768px) {
   .content {
+    padding: 0 1rem;
+  }
+
+  .projectCard {
     padding: 1rem;
   }
 
-  .projectInfo {
-    padding: 1.5rem;
+  .imageSlider {
+    height: 300px;
+  }
+
+  .projectInfo h3 {
+    font-size: 1.5rem;
   }
 }

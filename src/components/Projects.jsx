@@ -8,7 +8,7 @@ function Projects({ projectsRef, scrollPosition }) {
     {
       title: "FIND GOOD STORE",
       description: "오픈 API를 활용한 매장 검색 및 지도 표시 서비스",
-      images: ["/images/goodstore1.png", "/images/goodstore2.png", "/images/goodstore3.png"],
+      images: ["/images/goodstore1.png", "/images/goodstore2.png", "/images/goodstore3.png", "/images/goodstore4.png"],
       tech: ["HTML", "CSS", "JavaScript", "Open API"],
       features: [
         "매장 위치 지도 표시",
@@ -21,7 +21,7 @@ function Projects({ projectsRef, scrollPosition }) {
     {
       title: "KOKEETEA MAIN WEB",
       description: "KOKEETEA 브랜드 웹사이트",
-      images: ["/images/kokee1.png", "/images/kokee2.png", "/images/kokee3.png"],
+      images: ["/images/kokee1.png", "/images/kokee2.png", "/images/kokee3.png", "/images/kokee4.png", "/images/kokee5.png"],
       tech: ["React", "Spring Boot", "MySQL", "Axios"],
       features: [
         "회원 관리 시스템",
@@ -78,12 +78,11 @@ function Projects({ projectsRef, scrollPosition }) {
                     key={imgIndex}
                     src={img}
                     alt={`${project.title} ${imgIndex + 1}`}
-                    style={{
-                      opacity: currentSlides[index] === imgIndex ? 1 : 0,
-                      position: 'absolute',
-                      top: 0,
-                      left: 0
-                    }}
+                    className={`
+                      ${currentSlides[index] === imgIndex ? styles.active : ''}
+                      ${currentSlides[index] === (imgIndex + 1) % project.images.length ? styles.next : ''}
+                      ${currentSlides[index] === (imgIndex - 1 + project.images.length) % project.images.length ? styles.prev : ''}
+                    `}
                   />
                 ))}
                 <div className={styles.sliderDots}>

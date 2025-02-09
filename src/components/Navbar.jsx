@@ -26,7 +26,7 @@ function Navbar({ scrollToSection, homeRef, aboutRef, skillsRef, projectsRef }) 
         {
           root: null,
           rootMargin: '0px',
-          threshold: 0.5 // 50% 이상 보일 때 활성화
+          threshold: 0.5 
         }
       );
 

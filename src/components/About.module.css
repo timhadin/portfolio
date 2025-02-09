@@ -1,7 +1,9 @@
 .aboutSection {
   background-color: #778da9; 
   color: white;
-  padding: 0;
+  min-height: 100vh;
+  padding: 80px 0;
+  box-sizing: border-box;
 }
 
 .aboutGrid {
@@ -13,7 +15,11 @@
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
+  height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {

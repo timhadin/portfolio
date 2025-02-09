@@ -9,6 +9,10 @@
 .app {
   font-family: "Pretendard-Regular", sans-serif;
   line-height: 1.6;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 .app::-webkit-scrollbar {
@@ -43,42 +47,37 @@ html, body {
 
 section {
   min-height: 100vh;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content {
   width: 100%;
-  padding: 80px 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 2rem 2rem 2rem;
   box-sizing: border-box;
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition: transform 0.1s ease-out;
-}
-
-.parallax {
-  position: relative;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  will-change: transform;
-  overflow: visible;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (max-width: 768px) {
-  .parallax {
-    background-attachment: scroll;
-    perspective: 500px;
-  }
-  
   .content {
-    transform: none !important;
+    padding: 1rem;
   }
 }
 
